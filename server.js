@@ -6,6 +6,9 @@ var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var http = require('http');
 
+//var multer = require('multer');
+
+
 var port = 8080;
 
 app.use(morgan('dev'));
@@ -23,3 +26,16 @@ app.listen(port, function(err) {
 	console.log("Server listening on port " + port + "...");
 	
 });
+
+require('./server/routes/upload')(app);
+/*
+app.use(multer({ 
+ dest: __dirname + '/public/uploads/' 
+}).single('images'));
+*/
+app.get('/', function(req, res) {
+	
+	res.render('index', {title : "Homepage"});
+	
+});
+
