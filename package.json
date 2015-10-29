@@ -1,0 +1,19 @@
+{
+  "name": "lect6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "latest",
+    "bower": "latest",
+    "express": "latest",
+    "jade": "latest",
+    "morgan": "latest",
+    "nodemon": "latest"
+  }
+}
