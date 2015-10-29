@@ -1,13 +1,15 @@
 <h1>Hello, world!</h1>
 
-<p>{{main.myVar}}</p>
+<input type="file" ngf-select="main.fileSelected($file)" accept="'image/*'" ng-model="filePicker">
+<input type="submit" ng-click="main.uploadFiles(filePicker)">
 
- <form>
-   <input type="file" ng-file-select="main.fileSelected($files)" accept="'image/*'" ng-model="images">
-   <input type="submit" ng-click="main.uploadFile()">
- </form>
-
-<div ng-if="main.file">
-  <p><b>File uploaded successfully!</b></b>
-</div>
+<br><br>
+File:
+<div style="font:smaller">{{main.f.name}} {{main.errFile.name}} {{main.errFile.$error}} {{main.errFile.$errorParam}}
+		<span class="progress" ng-show="main.f.progress >= 0">
+				<div style="width:{{main.f.progress}}%"  
+							ng-bind="'Upload progress: ' +main.f.progress + '%'"></div>
+		</span>
+</div>     
+{{errorMsg}}
 

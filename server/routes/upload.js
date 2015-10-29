@@ -5,7 +5,7 @@ module.exports = function (app) {
 	
 	var storage = multer.diskStorage({
 		destination: function (req, file, cb) {
-			cb(null, './public/uploads/')
+			cb(null, './public/uploads/');
 		},
 		filename: function (req, file, cb) {			
 			cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
@@ -14,12 +14,20 @@ module.exports = function (app) {
 	
 	var upload = multer({
 		storage : storage,
-		limits: {fileSize: 1000000, files:1},
+		limits: {fileSize: 500000000, files:1},
 	});
 	
-	app.post('/upload', upload.single('image'), function(req, res) {
-				
-		res.render('index', {title : "Homepage", tagline: "File uploaded successfully!"});
+	var mware = upload.single('file');
+	
+	app.post('/upload', function(req, res) {
+		
+		mware(req, res, function(err) {
+			
+			if(err) {				
+				console.log(err) 
+				console.log(err.stack)				
+			}						
+		});
 		
 	});
 	

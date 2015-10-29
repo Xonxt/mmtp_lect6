@@ -28,11 +28,8 @@ app.listen(port, function(err) {
 });
 
 require('./server/routes/upload')(app);
-/*
-app.use(multer({ 
- dest: __dirname + '/public/uploads/' 
-}).single('images'));
-*/
+
+
 app.get('/', function(req, res) {
 	
 	res.render('index', {title : "Homepage"});

@@ -1,6 +1,6 @@
 'use strict';
 
-var appModule = angular.module('app', ['app.main', 'ngNewRouter', 'ngResource']);
+var appModule = angular.module('app', ['app.main', 'ngNewRouter', 'ngResource', 'ngFileUpload']);
 
 appModule.controller('AppController', ['$router', AppController]);
 
